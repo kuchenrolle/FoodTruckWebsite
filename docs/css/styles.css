@@ -1,0 +1,509 @@
+/* define colour scheme based on logo */
+:root {
+  --green: #90B420;
+  --brown: #4D2919;
+  --yellow: #F89832;
+  --red: #E4393F;
+  --beige: #FFE2C4;
+  --text-color: #333; /* Default text color */
+  --heading-color: #444; /* Default heading color */
+  --link-color: var(--red); /* Default link color */
+  --hover-color: #ff6347; /* Tomato color for hover effect */
+  --background-color: var(--beige); /* Beige background color */
+  --white: #ffffff; /* White color for backgrounds */
+  --border-color: #ddd; /* Border color for containers */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Shadow color */
+}
+
+/* General Styles */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 10px 20px;
+  background-color: var(--background-color);
+  margin: 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--heading-color);
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+p {
+  font-size: 1rem;
+  margin: 15px 0;
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px; /* Restrict width to make it more readable */
+  margin: 20px auto; /* Center the container */
+  padding: 0 20px; /* Add some padding to avoid content touching the edges */
+}
+
+/* About Page Specific Styles */
+.about-story {
+  text-align: center; /* Center the text content */
+}
+
+.about-logo {
+  max-width: 150px; /* Make the logo slightly smaller */
+  margin: 20px auto; /* Center with more spacing */
+  display: block;
+  border-radius: 8px; /* Add a slight border radius for a modern feel */
+  box-shadow: 0 4px 8px var(--shadow-color); /* Add a subtle shadow */
+}
+
+h1,
+h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: var(--brown);
+}
+
+#events div {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+/* Header and Navigation */
+#header {
+  background-color: var(--green);
+  padding: 10px 0 5px;
+  text-align: center;
+}
+
+/* First row: social icons and logo */
+.top-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Social Icons aligned to the left */
+.social-icons {
+  position: absolute;
+  left: 80px; /* Adjust as needed */
+}
+
+.social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-icons img {
+  width: 15px;
+  height: 15px;
+  filter: invert(1); /* If icons are dark, make them white */
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Logo centered in the first row */
+.logo img {
+  max-height: 60px;
+  border-radius: 50%; /* Adjust the logo to be circular if needed */
+}
+
+/* Second row: Navigation Links */
+.nav-container {
+  margin-top: 0px;
+  position: relative;
+}
+
+#nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#nav-menu li {
+  margin: 0 20px;
+}
+
+#nav-menu li a {
+  font-weight: bold;
+  color: var(--beige);
+  text-decoration: none;
+  font-size: 0.7rem;
+}
+
+#nav-menu li a:hover {
+  color: var(--red); /* Change to highlight color on hover */
+}
+
+/* Hamburger Menu for Mobile */
+#nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--beige);
+  position: absolute;
+  top: 0;
+  right: 20px; /* Adjust position as needed */
+}
+
+@media (max-width: 768px) {
+  #header {
+    padding: 5px 0 2px
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #nav-menu {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #nav-menu.open {
+    display: flex;
+  }
+
+  #nav-menu li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  #nav-toggle {
+    display: block;
+    align-self: flex-end;
+  }
+
+  .social-icons {
+    left: 15px; /* Further reduce left margin */
+  }
+
+  .social-icons img {
+    width: 15px; /* Reduce icon size further on smaller screens */
+    height: 15px;
+  }
+
+  .logo img {
+    max-height: 45px; /* Slightly smaller logo for smaller screens */
+  }
+
+}
+
+
+
+/* Menu Styling */
+
+/* Menu Grid Layout */
+#menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ensure flexibility */
+  gap: 20px;
+  padding: 20px;
+  justify-items: center; /* Center menu items horizontally */
+}
+
+/* Individual Menu Card */
+.menu-item {
+  background-color: var(--beige);
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: none;
+  min-height: 250px;
+  max-height: 300px;
+  overflow: visible; /* Allow content to overflow */
+  width: 100%; /* Full width for mobile */
+  box-sizing: border-box; /* Include padding in width calculations */
+}
+
+/* Product Name */
+.menu-item h2 {
+  color: var(--brown);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Divider Line */
+.menu-item .divider {
+  height: 1px;
+  background-color: var(--brown);
+  width: 100%;
+  margin: 10px 0;
+}
+
+/* Product Description */
+.menu-item p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  margin: 10px 0;
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Bottom Row for icons, price, and menu button */
+.menu-item .bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Price Styling */
+.menu-item .price {
+  color: var(--brown);
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Icons (Vegan, Vegetarian, Meat) */
+.menu-item .icons img,
+.menu-item .menu-button {
+  width: 30px; /* Consistent width for icons and buttons */
+  height: 30px; /* Consistent height for icons and buttons */
+}
+
+/* Tooltip for Vegan/Vegetarian/Meat */
+.menu-item .icons img:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  background-color: var(--brown);
+  color: var(--white);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Small Menu Button */
+.menu-item .menu-button {
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 10%;
+  padding: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1; /* Ensure the button itself is above lower elements */
+}
+
+/* Tooltip for Ingredients and Allergens */
+.menu-item .menu-button:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 45px; /* Ensure it appears above on mobile */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%);
+  background-color: var(--brown);
+  color: var(--white);
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  white-space: pre-line; /* Allow line breaks */
+  max-width: 250px;
+  word-wrap: break-word; /* Ensure content wraps */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for visibility */
+}
+
+/* On mobile, position the tooltip above */
+@media (max-width: 768px) {
+  .menu-item .menu-button:hover::after {
+    bottom: 45px; /* Move tooltip further up to avoid button overlap */
+  }
+
+  /* Adjust grid layout on mobile to center items */
+  #menu {
+    grid-template-columns: 1fr; /* Stack items in one column on small screens */
+    justify-items: center; /* Ensure items are centered */
+  }
+
+  /* Adjust width of menu items */
+  .menu-item {
+    width: 90%; /* Make menu items take up most of the screen width on mobile */
+    max-width: 400px; /* Limit max width to ensure readability */
+  }
+}
+
+
+/* Form Styling */
+form {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px 0;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box; /* Ensures padding doesn't affect total width */
+  resize: none;
+}
+
+form button {
+  width: 100%; /* Ensures the button is the same width as the input fields */
+  padding: 10px;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 20px; /* Adds some space above the button */
+}
+
+form button:hover {
+  background-color: var(--brown);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: var(--green);
+  color: var(--white);
+  margin-top: 40px;
+  bottom: 0;
+  flex-shrink: 0;
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+/* Calendar */
+#calendar-container {
+  flex: 1;
+}
+
+/* Ensure responsiveness */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Gallery styling */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery-item {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1); /* Zoom in on hover */
+  filter: brightness(80%);
+}
+
+/* Lightbox styling */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}

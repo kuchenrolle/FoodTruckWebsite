@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/loadHeader.js"></script>
+  <script defer src="js/loadGallery.js"></script> <!-- Load the JS file -->
+</head>
+
+<body>
+  <main class="container">
+    <h1>Our Gallery</h1>
+    <div id="gallery" class="gallery-grid"></div> <!-- Empty container for images -->
+  </main>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+  </div>
+</body>
+
+</html>

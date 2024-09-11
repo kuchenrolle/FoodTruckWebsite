@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/loadHeader.js"></script>
+</head>
+<!-- Try: https://open-web-calendar.hosted.quelltext.eu/ -->
+
+<!-- API calls are the proper way to do this but quite a bit of work
+<body>
+  <h1>Upcoming Events</h1>
+  <div id="events"></div>
+  <script>
+    async function loadEvents() {
+      const calendarId = 'your-calendar-id@group.calendar.google.com';
+      const apiKey = 'your-api-key';
+      const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${calendarId}/events?key=${apiKey}`);
+      const data = await response.json();
+      const eventsContainer = document.getElementById('events');
+      data.items.forEach(event => {
+        const eventDiv = document.createElement('div');
+        eventDiv.innerText = `${new Date(event.start.dateTime || event.start.date).toLocaleString()}: ${event.summary}`;
+        eventsContainer.appendChild(eventDiv);
+      });
+    }
+    loadEvents();
+  </script>
+</body>
+-->
+
+<!-- Shit because of google's styling
+<body>
+    <main>
+      <h1>Upcoming Events</h1>
+      <div class="calendar-container">
+        <iframe src="https://calendar.google.com/calendar/embed?src=13545b127c0f58d25e4e5172eb390bfcadf21b923dcb51eb9a26816f65d5d834%40group.calendar.google.com&ctz=Europe%2FBerlin" style="border: 0;" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </main>
+</body>
+-->
+
+<!-- simple, free, will do for now -->
+<body>
+  <main>
+    <div id="calendar-container">
+      <h1>Upcoming Events</h1>
+      <iframe src="https://embed.styledcalendar.com/#DeYdG4WXuAFxRRnwiOxf" title="Styled Calendar" class="styled-calendar-container" style="width: 70%; height:70%; border: none; padding-left: 15%; padding-right: 15%;" data-cy="calendar-embed-iframe"></iframe>
+    </div>
+  </main>
+</body>
+<script async type="module" src="https://embed.styledcalendar.com/assets/parent-window.js"></script>
+
+
+</html>

@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "name": "South Indian Lentil Curry",
+      "price": "7 Euros",
+      "description": "Traditional curry made with homemade spice blend, ginger, garlic and tamarind.",
+      "ingredients": "Lentils, homemade spice blend, ginger, garlic, tamarind",
+      "allergens": "",
+      "type": "Curry",
+      "vegan": true,
+      "vegetarian": true
+    },
+    {
+      "name": "Chicken Gassi",
+      "price": "8 Euros",
+      "description": "Marinated chicken cooked with ground spice mix, onion, tomato, ginger and garlic with coconut milk and tamarind. Served with steamed rice and side dishes - papadams, coconut chutney, beetroot yogurt salad, and fried chili.",
+      "ingredients": "Chicken, ground spice mix, onion, tomato, ginger, garlic, coconut milk, tamarind, rice, papadams, coconut chutney, beetroot yogurt, fried chili",
+      "allergens": "",
+      "type": "Curry",
+      "vegan": false,
+      "vegetarian": false
+    },
+    {
+      "name": "Mango Lassi",
+      "price": "2.50 Euros",
+      "description": "A refreshing mango yogurt drink.",
+      "ingredients": "Mango, yogurt, sugar",
+      "allergens": "Dairy",
+      "type": "Drink",
+      "vegan": false,
+      "vegetarian": true
+    }
+  ]
+}

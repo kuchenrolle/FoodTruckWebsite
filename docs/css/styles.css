@@ -335,6 +335,12 @@ h2 {
   z-index: 1; /* Ensure the button itself is above lower elements */
 }
 
+.menu-item .menu-button img {
+  width: 20px;
+  height: 20px;
+  filter: invert(1);
+}
+
 /* Tooltip for Ingredients and Allergens */
 .menu-item .menu-button:hover::after {
   content: attr(data-tooltip);
@@ -355,6 +361,11 @@ h2 {
 
 /* On mobile, position the tooltip above */
 @media (max-width: 768px) {
+  .menu-item {
+    padding: 20px;
+    width: 100%; /* Full width for mobile */
+  }
+
   .menu-item .menu-button:hover::after {
     bottom: 45px; /* Move tooltip further up to avoid button overlap */
   }
@@ -365,11 +376,6 @@ h2 {
     justify-items: center; /* Ensure items are centered */
   }
 
-  /* Adjust width of menu items */
-  .menu-item {
-    width: 90%; /* Make menu items take up most of the screen width on mobile */
-    max-width: 400px; /* Limit max width to ensure readability */
-  }
 }
 
 

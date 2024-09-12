@@ -21,21 +21,26 @@ async function loadMenu() {
     const iconsDiv = document.createElement('div');
     iconsDiv.className = 'icons';
 
+    const iconWrapper = document.createElement('span');
+    iconWrapper.className = 'icon-wrapper';
+    
     const foodIcon = document.createElement('img');
     if (item.vegan) {
       foodIcon.src = 'images/icons/vegan.svg'; // Vegan icon
       foodIcon.alt = 'Vegan';
-      foodIcon.setAttribute('data-tooltip', 'Vegan');
+      iconWrapper.setAttribute('data-tooltip', 'Vegan');
     } else if (item.vegetarian) {
       foodIcon.src = 'images/icons/vegetarian.svg'; // Vegetarian icon
       foodIcon.alt = 'Vegetarian';
-      foodIcon.setAttribute('data-tooltip', 'Vegetarian');
+      iconWrapper.setAttribute('data-tooltip', 'Vegetarian');
     } else {
       foodIcon.src = 'images/icons/meat.svg'; // Meat icon
       foodIcon.alt = 'Meat';
-      foodIcon.setAttribute('data-tooltip', 'Meat');
+      iconWrapper.setAttribute('data-tooltip', 'Meat');
     }
-    iconsDiv.appendChild(foodIcon);
+    
+    iconWrapper.appendChild(foodIcon); // Wrap the icon inside a span
+    iconsDiv.appendChild(iconWrapper); // Add the icon wrapper to the iconsDiv
 
     // Price
     const priceDiv = document.createElement('div');
@@ -46,7 +51,7 @@ async function loadMenu() {
     const menuButton = document.createElement('button');
     menuButton.className = 'menu-button';
 
-        const buttonIcon = document.createElement('img');
+    const buttonIcon = document.createElement('img');
     buttonIcon.src = 'images/icons/list.svg';
     buttonIcon.alt = 'Menu Icon';
     buttonIcon.style.width = '24px';

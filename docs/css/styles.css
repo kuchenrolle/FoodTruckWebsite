@@ -304,17 +304,25 @@ h2 {
 }
 
 /* Tooltip for Vegan/Vegetarian/Meat */
-.menu-item .icons img:hover::after {
+.icon-wrapper {
+  position: relative; /* Make the wrapper relative for absolute positioning */
+  display: inline-block;
+}
+
+.icon-wrapper:hover::after {
   content: attr(data-tooltip);
   position: absolute;
-  bottom: -25px;
-  left: 0;
-  background-color: var(--brown);
-  color: var(--white);
-  padding: 5px 10px;
-  font-size: 0.8rem;
-  border-radius: 4px;
-  white-space: nowrap;
+  bottom: -35px; /* Adjust this to control the distance from the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--brown); /* Background color for the tooltip */
+  color: var(--white); /* Text color inside the tooltip */
+  padding: 5px 10px; /* Padding for better appearance */
+  font-size: 0.8rem; /* Smaller font for the tooltip */
+  border-radius: 4px; /* Rounded corners for the tooltip */
+  white-space: nowrap; /* Ensure the tooltip doesn't wrap to the next line */
+  z-index: 10; /* Make sure the tooltip appears above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
 }
 
 /* Small Menu Button */

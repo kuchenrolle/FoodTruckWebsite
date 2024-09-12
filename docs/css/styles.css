@@ -309,22 +309,6 @@ h2 {
   display: inline-block;
 }
 
-.icon-wrapper:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: -35px; /* Adjust this to control the distance from the icon */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--brown); /* Background color for the tooltip */
-  color: var(--white); /* Text color inside the tooltip */
-  padding: 5px 10px; /* Padding for better appearance */
-  font-size: 0.8rem; /* Smaller font for the tooltip */
-  border-radius: 4px; /* Rounded corners for the tooltip */
-  white-space: nowrap; /* Ensure the tooltip doesn't wrap to the next line */
-  z-index: 10; /* Make sure the tooltip appears above other elements */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for better visibility */
-}
-
 /* Small Menu Button */
 .menu-item .menu-button {
   background-color: var(--green);
@@ -349,7 +333,8 @@ h2 {
   filter: invert(1);
 }
 
-/* Tooltip for Ingredients and Allergens */
+/* Tooltips */
+.icon-wrapper:hover::after,
 .menu-item .menu-button:hover::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -374,6 +359,7 @@ h2 {
     width: 100%; /* Full width for mobile */
   }
 
+  .icon-wrapper:hover::after,
   .menu-item .menu-button:hover::after {
     bottom: 45px; /* Move tooltip further up to avoid button overlap */
   }

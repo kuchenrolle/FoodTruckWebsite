@@ -98,6 +98,12 @@ function attachNavListeners() {
             currentMain.replaceWith(newMain);
           }
 
+          // Update the page title
+          const newTitle = doc.querySelector('title');
+          if (newTitle) {
+            document.title = newTitle.innerText;
+          }
+
           // Remove any existing inline <script> tags from the old content
           document.querySelectorAll('script.dynamic-script').forEach(script => {
             script.remove();
@@ -129,7 +135,6 @@ function attachNavListeners() {
 
           // resize calendar iframe
           if (url.includes('events')) {
-            // reinitStyledCalendar();
             setIframeHeight(); // Adjust the iframe height after loading the events page
           } else if (url.includes('gallery')) {
             loadGallery(); // Manually call the function to load the gallery

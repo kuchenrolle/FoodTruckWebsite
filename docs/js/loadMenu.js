@@ -45,7 +45,16 @@ async function loadMenu() {
     // Menu Button (Ingredients & Allergens Tooltip)
     const menuButton = document.createElement('button');
     menuButton.className = 'menu-button';
-    menuButton.innerText = '☰'; // Hamburger icon or keyboard menu key
+
+        const buttonIcon = document.createElement('img');
+    buttonIcon.src = 'images/icons/list.svg';
+    buttonIcon.alt = 'Menu Icon';
+    buttonIcon.style.width = '24px';
+    buttonIcon.style.height = '24px';
+
+    menuButton.appendChild(buttonIcon); // Append the SVG icon to the button
+
+    // Set tooltip with ingredients and allergens
     menuButton.setAttribute('data-tooltip', `Ingredients:\n${item.ingredients}\n\nAllergens:\n${item.allergens || 'None'}`);
 
     // Bottom Row (Icons, Price, and Menu Button)

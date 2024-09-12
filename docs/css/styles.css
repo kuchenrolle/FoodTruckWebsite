@@ -381,12 +381,15 @@ h2 {
   left: 10px;
 }
 
+.contact-info .social-icons img {
+  filter: none;
+}
 
 /* Form Styling */
 form {
   background: var(--white);
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 2px 5px var(--shadow-color);
   max-width: 600px;
   margin: 20px auto;
@@ -402,6 +405,11 @@ form textarea {
   font-size: 1rem;
   box-sizing: border-box; /* Ensures padding doesn't affect total width */
   resize: none;
+}
+
+form #message {
+  height: 150px; /* Adjust the height value as needed */
+  resize: vertical; /* Allows the user to resize the textarea vertically */
 }
 
 form button {

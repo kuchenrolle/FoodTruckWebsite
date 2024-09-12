@@ -373,6 +373,15 @@ h2 {
 }
 
 
+/* Contact page */
+.contact-info .social-icons {
+  position: relative;
+  color: var(--brown);
+  filter: none;
+  left: 10px;
+}
+
+
 /* Form Styling */
 form {
   background: var(--white);

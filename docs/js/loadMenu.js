@@ -20,7 +20,7 @@ async function loadMenu() {
     // Icons (Vegan, Vegetarian, or Meat)
     const iconsDiv = document.createElement('div');
     iconsDiv.className = 'icons';
-
+c
     const foodIcon = document.createElement('img');
     if (item.vegan) {
       foodIcon.src = 'images/icons/vegan.svg'; // Vegan icon

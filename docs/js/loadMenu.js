@@ -100,6 +100,42 @@ async function loadMenu() {
 
     menuContainer.appendChild(section);
   });
+
+  setupMenuTooltips();
+}
+
+function setupMenuTooltips() {
+  const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const buttons = document.querySelectorAll('.menu-button');
+  const closeAll = () => {
+    document.querySelectorAll('.menu-button.is-active')
+      .forEach(item => item.classList.remove('is-active'));
+  };
+
+  if (!supportsHover) {
+    buttons.forEach(button => {
+      if (button.dataset.tooltipBound === 'true') {
+        return;
+      }
+
+      button.dataset.tooltipBound = 'true';
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const isActive = button.classList.contains('is-active');
+        closeAll();
+        if (!isActive) {
+          button.classList.add('is-active');
+        }
+      });
+    });
+
+    if (!window.__menuTooltipCloseBound) {
+      window.__menuTooltipCloseBound = true;
+      document.addEventListener('click', closeAll);
+      document.addEventListener('touchstart', closeAll);
+    }
+  }
 }
 
 // Load menu immediately

@@ -11,29 +11,53 @@
 
 <body>
   <main class="container">
-    <div id="calendar-container">
-      <h1>Upcoming Events</h1>
-      <div class="calendar-toggle" role="tablist" aria-label="Events view">
-        <button type="button" class="toggle-button is-active" data-view="list" role="tab" aria-selected="true">List</button>
-        <button type="button" class="toggle-button" data-view="month" role="tab" aria-selected="false">Month</button>
-      </div>
-      <div class="calendar-views">
-        <section class="calendar-view is-active" data-view="list" role="tabpanel">
-          <div id="events" class="events-list" aria-live="polite"></div>
-        </section>
-        <section class="calendar-view" data-view="month" role="tabpanel" aria-hidden="true">
-          <div class="calendar-embed">
-            <iframe
-              title="Monthly calendar"
-              src="https://calendar.google.com/calendar/embed?src=13545b127c0f58d25e4e5172eb390bfcadf21b923dcb51eb9a26816f65d5d834%40group.calendar.google.com&ctz=Europe%2FBerlin&mode=MONTH&showTitle=0&showNav=0&showTabs=0&showPrint=0&showCalendars=0&showTz=0&wkst=2&bgcolor=%23FFF5E6&color=%2390B420"
-              frameborder="0"
-              scrolling="no"></iframe>
+    <div id="calendar-container" class="where-to-find-us">
+      <h1>Where to Find Us</h1>
+
+      <section class="today-panel">
+        <h3>Today</h3>
+        <section id="today-events" class="events-list" aria-live="polite"></section>
+
+        <section id="regular-schedule" class="regular-stops fallback-schedule" aria-hidden="true">
+          <h3>Regular Stops</h3>
+          <div class="regular-stops-grid">
+            <article class="stop-card">
+              <h4>Wednesday</h4>
+              <p>Technologiepark Tübingen · Lunch hours</p>
+            </article>
+            <article class="stop-card">
+              <h4>Thursday</h4>
+              <p>Morgenstelle Tübingen · Lunch hours</p>
+            </article>
           </div>
         </section>
-      </div>
+      </section>
+
+      <section class="calendar-panel">
+        <h3>Upcoming Events</h3>
+        <div class="calendar-toggle" role="tablist" aria-label="Events view">
+          <button type="button" class="toggle-button is-active" data-view="list" role="tab" aria-selected="true">List</button>
+          <button type="button" class="toggle-button" data-view="month" role="tab" aria-selected="false">Month</button>
+        </div>
+        <div class="calendar-views">
+          <section class="calendar-view is-active" data-view="list" role="tabpanel">
+            <div id="events" class="events-list" aria-live="polite"></div>
+          </section>
+          <section class="calendar-view" data-view="month" role="tabpanel" aria-hidden="true">
+            <div class="calendar-embed">
+              <iframe
+                title="Monthly calendar"
+                src="https://calendar.google.com/calendar/embed?src=13545b127c0f58d25e4e5172eb390bfcadf21b923dcb51eb9a26816f65d5d834%40group.calendar.google.com&ctz=Europe%2FBerlin&mode=MONTH&showTitle=0&showNav=1&showDate=1&showTabs=0&showPrint=0&showCalendars=0&showTz=0&wkst=2&bgcolor=%23FFF5E6&color=%2390B420"
+                frameborder="0"
+                scrolling="no"></iframe>
+            </div>
+          </section>
+        </div>
+      </section>
     </div>
   </main>
 </body>
 <script src="js/loadEvents.js"></script>
+<script src="js/loadToday.js"></script>
 
 </html>

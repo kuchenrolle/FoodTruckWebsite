@@ -65,6 +65,57 @@ a:hover {
   box-sizing: border-box;
 }
 
+.home p a {
+  color: var(--brown);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(77, 41, 25, 0.2);
+}
+
+.home p a:hover {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.regular-stops {
+  margin-top: 3rem;
+}
+
+.today-panel .regular-stops h3 {
+  margin-bottom: 0;
+}
+
+.what-to-expect {
+  margin-top: 5rem;
+}
+
+.regular-stops-grid {
+  display: block;
+}
+
+.stop-card {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.stop-card h3,
+.stop-card h4 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+  color: var(--brown);
+}
+
+.stop-card p {
+  margin: 0;
+}
+
+.find-us-link {
+  margin: 18px 0 0;
+  font-weight: 600;
+  color: var(--brown);
+  text-align: left;
+}
+
 /* About Page Specific Styles */
 .about-story {
   text-align: center; /* Center the text content */
@@ -143,7 +194,7 @@ h2 {
 
 /* Logo centered in the first row */
 .logo img {
-  max-height: 60px;
+  max-height: 70px;
   border-radius: 50%;
 }
 
@@ -405,11 +456,11 @@ h2 {
 
 /* Form Styling */
 form {
-  background: var(--white);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px var(--shadow-color);
-  max-width: 600px;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  max-width: 800px;
   margin: 20px auto;
 }
 
@@ -423,6 +474,10 @@ form textarea {
   font-size: 1rem;
   box-sizing: border-box; /* Ensures padding doesn't affect total width */
   resize: none;
+}
+
+form textarea {
+  min-height: 180px;
 }
 
 form button {
@@ -505,11 +560,11 @@ footer p {
 }
 
 .calendar-embed {
-  background: linear-gradient(135deg, #fff5e6, #ffe7cd);
-  border-radius: 18px;
-  border: 1px solid rgba(77, 41, 25, 0.18);
-  box-shadow: 0 12px 24px rgba(77, 41, 25, 0.12);
-  padding: 12px;
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
   overflow: hidden;
 }
 
@@ -518,7 +573,7 @@ footer p {
   height: 600px;
   border: 0;
   display: block;
-  border-radius: 12px;
+  border-radius: 0;
   background: var(--white);
 }
 
@@ -526,16 +581,98 @@ footer p {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 16px;
-  margin-top: 20px;
+  width: 100%;
+}
+
+.today .events-list {
+  margin-top: 16px;
+}
+
+.today-intro {
+  text-align: left;
+}
+
+.fallback-schedule {
+  margin-top: 24px;
+}
+
+.where-to-find-us {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.where-to-find-us > section {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.where-to-find-us h2,
+.where-to-find-us h3,
+.where-to-find-us h4 {
+  text-align: left;
+}
+
+.where-to-find-us h1 {
+  margin-bottom: 0;
+}
+
+.today-panel {
+  padding-bottom: 12px;
+  background: transparent;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+}
+
+.today-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.today-panel h3 {
+  margin-bottom: 9px;
+  text-align: left;
+  margin-top: 0;
+}
+
+.today-intro {
+  margin: 0;
+  text-align: left;
+}
+
+.calendar-panel {
+  width: 100%;
+  padding-top: 12px;
+}
+
+.calendar-panel .events-list,
+.calendar-panel .calendar-views,
+.calendar-panel .calendar-view {
   width: 100%;
 }
 
 .event-card {
-  background: var(--white);
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  padding: 16px 18px;
-  box-shadow: 0 2px 6px var(--shadow-color);
+  background: transparent;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 0;
+  padding: 16px 0;
+  box-shadow: none;
+}
+
+.event-card:last-child {
+  border-bottom: 0;
+}
+
+.cash-only {
+  margin: 0 0 20px;
+  font-weight: 600;
+  color: var(--brown);
+  text-align: center;
 }
 
 .event-date {
@@ -562,12 +699,29 @@ footer p {
   color: var(--text-color);
 }
 
+.events-load-more {
+  margin-top: 16px;
+  padding: 10px 18px;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.events-load-more:hover {
+  background-color: var(--brown);
+}
+
 .events-message {
-  padding: 12px 16px;
-  background: var(--white);
-  border: 1px dashed var(--border-color);
-  border-radius: 8px;
-  text-align: center;
+  padding-bottom: 12px;
+  margin-top: 0px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
 }
 
 /* Ensure responsiveness */

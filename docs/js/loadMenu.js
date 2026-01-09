@@ -6,7 +6,7 @@ async function loadMenu() {
   menuContainer.innerHTML = '';
 
   const grouped = new Map();
-  menu.items.forEach(item => {
+  menu.items.filter(item => item.active).forEach(item => {
     const key = item.submenu || 'Menu';
     if (!grouped.has(key)) {
       grouped.set(key, []);

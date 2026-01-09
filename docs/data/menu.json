@@ -8,6 +8,7 @@
       "allergens": "",
       "submenu": "Dishes",
       "type": "Curry",
+      "active": true,
       "vegan": true,
       "vegetarian": true
     },
@@ -19,6 +20,7 @@
       "allergens": "",
       "submenu": "Dishes",
       "type": "Curry",
+      "active": true,
       "vegan": false,
       "vegetarian": false
     },
@@ -30,6 +32,7 @@
       "allergens": "",
       "submenu": "Dishes",
       "type": "Street Food",
+      "active": true,
       "vegan": true,
       "vegetarian": true
     },
@@ -41,6 +44,7 @@
       "allergens": "",
       "submenu": "Dishes",
       "type": "Street Food",
+      "active": true,
       "vegan": false,
       "vegetarian": false
     },
@@ -52,6 +56,7 @@
       "allergens": "",
       "submenu": "Dishes",
       "type": "Street Food",
+      "active": true,
       "vegan": true,
       "vegetarian": true
     },
@@ -63,6 +68,7 @@
       "allergens": "Dairy",
       "submenu": "Drinks",
       "type": "Drink",
+      "active": true,
       "vegan": false,
       "vegetarian": true
     },
@@ -74,6 +80,7 @@
       "allergens": "Dairy",
       "submenu": "Drinks",
       "type": "Hot Drink",
+      "active": true,
       "vegan": false,
       "vegetarian": true
     },
@@ -85,6 +92,7 @@
       "allergens": "",
       "submenu": "Extras",
       "type": "Side",
+      "active": true,
       "vegan": true,
       "vegetarian": true
     },
@@ -96,6 +104,7 @@
       "allergens": "",
       "submenu": "Extras",
       "type": "Side",
+      "active": true,
       "vegan": true,
       "vegetarian": true
     },
@@ -107,6 +116,7 @@
       "allergens": "Dairy",
       "submenu": "Extras",
       "type": "Side",
+      "active": true,
       "vegan": false,
       "vegetarian": true
     },
@@ -118,6 +128,7 @@
       "allergens": "",
       "submenu": "Extras",
       "type": "Side",
+      "active": true,
       "vegan": true,
       "vegetarian": true
     }

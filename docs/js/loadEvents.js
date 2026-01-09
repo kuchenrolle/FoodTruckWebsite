@@ -63,6 +63,102 @@ function setupCalendarToggle() {
   });
 }
 
+const EVENTS_PAGE_SIZE = 4;
+let eventsCache = [];
+let eventsIndex = 0;
+
+function renderEvents(container, events) {
+  if (!events.length) {
+    renderEventsMessage(container, 'No upcoming events right now. Check back soon.');
+    return;
+  }
+
+  container.innerHTML = '';
+
+  events.forEach(event => {
+    const card = document.createElement('article');
+    card.className = 'event-card';
+
+    const title = document.createElement('h2');
+    title.className = 'event-title';
+    title.textContent = event.summary || 'Untitled Event';
+
+    const date = document.createElement('p');
+    date.className = 'event-date';
+    date.textContent = formatEventDate(event.start, event.end, navigator.language);
+
+    card.appendChild(date);
+    card.appendChild(title);
+
+    if (event.location) {
+      const location = document.createElement('p');
+      location.className = 'event-meta';
+      location.textContent = event.location;
+      card.appendChild(location);
+    }
+
+    if (event.description) {
+      const description = document.createElement('p');
+      description.className = 'event-description';
+      description.textContent = event.description;
+      card.appendChild(description);
+    }
+
+    container.appendChild(card);
+  });
+}
+
+function appendEvents(container, events) {
+  events.forEach(event => {
+    const card = document.createElement('article');
+    card.className = 'event-card';
+
+    const title = document.createElement('h2');
+    title.className = 'event-title';
+    title.textContent = event.summary || 'Untitled Event';
+
+    const date = document.createElement('p');
+    date.className = 'event-date';
+    date.textContent = formatEventDate(event.start, event.end, navigator.language);
+
+    card.appendChild(date);
+    card.appendChild(title);
+
+    if (event.location) {
+      const location = document.createElement('p');
+      location.className = 'event-meta';
+      location.textContent = event.location;
+      card.appendChild(location);
+    }
+
+    if (event.description) {
+      const description = document.createElement('p');
+      description.className = 'event-description';
+      description.textContent = event.description;
+      card.appendChild(description);
+    }
+
+    container.appendChild(card);
+  });
+}
+
+function updateLoadMoreButton(button) {
+  const remaining = eventsCache.length - eventsIndex;
+  if (remaining <= 0) {
+    button.setAttribute('hidden', 'true');
+    return;
+  }
+
+  button.removeAttribute('hidden');
+}
+
+function handleLoadMore(container, button) {
+  const nextEvents = eventsCache.slice(eventsIndex, eventsIndex + EVENTS_PAGE_SIZE);
+  eventsIndex += nextEvents.length;
+  appendEvents(container, nextEvents);
+  updateLoadMoreButton(button);
+}
+
 async function loadEvents() {
   const container = document.getElementById('events');
   if (!container) return;
@@ -80,46 +176,23 @@ async function loadEvents() {
     }
 
     const data = await response.json();
-    const events = (data.items || []).filter(item => item.status !== 'cancelled');
+    eventsCache = (data.items || []).filter(item => item.status !== 'cancelled');
+    eventsIndex = 0;
 
-    if (events.length === 0) {
-      renderEventsMessage(container, 'No upcoming events right now. Check back soon.');
-      return;
-    }
+    const initialEvents = eventsCache.slice(0, EVENTS_PAGE_SIZE);
+    eventsIndex = initialEvents.length;
+    renderEvents(container, initialEvents);
 
-    container.innerHTML = '';
+    const existingButton = document.querySelector('.events-load-more');
+    if (existingButton) existingButton.remove();
 
-    events.forEach(event => {
-      const card = document.createElement('article');
-      card.className = 'event-card';
-
-      const title = document.createElement('h2');
-      title.className = 'event-title';
-      title.textContent = event.summary || 'Untitled Event';
-
-      const date = document.createElement('p');
-      date.className = 'event-date';
-      date.textContent = formatEventDate(event.start, event.end, navigator.language);
-
-      card.appendChild(date);
-      card.appendChild(title);
-
-      if (event.location) {
-        const location = document.createElement('p');
-        location.className = 'event-meta';
-        location.textContent = event.location;
-        card.appendChild(location);
-      }
-
-      if (event.description) {
-        const description = document.createElement('p');
-        description.className = 'event-description';
-        description.textContent = event.description;
-        card.appendChild(description);
-      }
-
-      container.appendChild(card);
-    });
+    const loadMoreButton = document.createElement('button');
+    loadMoreButton.type = 'button';
+    loadMoreButton.className = 'events-load-more';
+    loadMoreButton.textContent = 'Load more';
+    loadMoreButton.addEventListener('click', () => handleLoadMore(container, loadMoreButton));
+    container.parentElement.appendChild(loadMoreButton);
+    updateLoadMoreButton(loadMoreButton);
   } catch (error) {
     console.error(error);
     renderEventsMessage(container, 'Could not load events. Please try again later.');

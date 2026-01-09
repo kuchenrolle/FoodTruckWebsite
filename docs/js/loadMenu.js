@@ -3,62 +3,102 @@ async function loadMenu() {
   const menu = await response.json();
   const menuContainer = document.getElementById('menu');
 
+  menuContainer.innerHTML = '';
+
+  const grouped = new Map();
   menu.items.forEach(item => {
+    const key = item.submenu || 'Menu';
+    if (!grouped.has(key)) {
+      grouped.set(key, []);
+    }
+    grouped.get(key).push(item);
+  });
+
+  grouped.forEach((items, sectionTitle) => {
+    const section = document.createElement('section');
+    section.className = 'menu-section';
+
+    const heading = document.createElement('h2');
+    heading.className = 'menu-section-title';
+    heading.innerText = sectionTitle;
+    section.appendChild(heading);
+
+    const grid = document.createElement('div');
+    grid.className = 'menu-grid';
+    section.appendChild(grid);
+
+    items.forEach(item => {
     const itemDiv = document.createElement('div');
     itemDiv.className = 'menu-item';
 
     // Product Name
-    const itemTitle = document.createElement('h2');
+    const itemTitle = document.createElement('h3');
+    itemTitle.className = 'menu-name';
     itemTitle.innerText = item.name;
-    itemDiv.appendChild(itemTitle);
+    const headerRow = document.createElement('div');
+    headerRow.className = 'menu-header';
+    headerRow.appendChild(itemTitle);
+
+    // Price
+    const priceDiv = document.createElement('div');
+    priceDiv.className = 'menu-price';
+    priceDiv.innerText = item.price;
+    headerRow.appendChild(priceDiv);
+    itemDiv.appendChild(headerRow);
+
+    // Tags
+    const tagsDiv = document.createElement('div');
+    tagsDiv.className = 'menu-tags';
+
+    if (item.type) {
+      const typeTag = document.createElement('span');
+      typeTag.className = 'menu-tag';
+      typeTag.innerText = item.type;
+      tagsDiv.appendChild(typeTag);
+    }
+
+    const dietTag = document.createElement('span');
+    dietTag.className = 'menu-tag menu-tag--diet';
+    if (item.vegan) {
+      dietTag.innerText = 'Vegan';
+      dietTag.classList.add('menu-tag--vegan');
+    } else if (item.vegetarian) {
+      dietTag.innerText = 'Vegetarian';
+      dietTag.classList.add('menu-tag--vegetarian');
+    } else {
+      dietTag.innerText = 'Meat';
+      dietTag.classList.add('menu-tag--meat');
+    }
+    tagsDiv.appendChild(dietTag);
+    itemDiv.appendChild(tagsDiv);
 
     // Product Description
     const itemDescription = document.createElement('p');
     itemDescription.innerText = item.description;
     itemDiv.appendChild(itemDescription);
 
-    // Icons (Vegan, Vegetarian, or Meat)
-    const iconsDiv = document.createElement('div');
-    iconsDiv.className = 'icons';
-
-    const foodIcon = document.createElement('img');
-    if (item.vegan) {
-      foodIcon.src = 'images/icons/vegan.svg'; // Vegan icon
-      foodIcon.alt = 'Vegan';
-      foodIcon.setAttribute('data-tooltip', 'Vegan');
-    } else if (item.vegetarian) {
-      foodIcon.src = 'images/icons/vegetarian.svg'; // Vegetarian icon
-      foodIcon.alt = 'Vegetarian';
-      foodIcon.setAttribute('data-tooltip', 'Vegetarian');
-    } else {
-      foodIcon.src = 'images/icons/meat.svg'; // Meat icon
-      foodIcon.alt = 'Meat';
-      foodIcon.setAttribute('data-tooltip', 'Meat');
-    }
-    iconsDiv.appendChild(foodIcon);
-
-    // Price
-    const priceDiv = document.createElement('div');
-    priceDiv.className = 'price';
-    priceDiv.innerText = item.price;
-
     // Menu Button (Ingredients & Allergens Tooltip)
     const menuButton = document.createElement('button');
     menuButton.className = 'menu-button';
-    menuButton.innerText = '☰'; // Hamburger icon or keyboard menu key
+    menuButton.type = 'button';
     menuButton.setAttribute('data-tooltip', `Ingredients:\n${item.ingredients}\n\nAllergens:\n${item.allergens || 'None'}`);
 
-    // Bottom Row (Icons, Price, and Menu Button)
+    const buttonLabel = document.createElement('span');
+    buttonLabel.innerText = 'Details';
+    menuButton.appendChild(buttonLabel);
+
+    // Bottom Row (Details)
     const bottomRow = document.createElement('div');
     bottomRow.className = 'bottom-row';
-    bottomRow.appendChild(iconsDiv);
-    bottomRow.appendChild(priceDiv);
     bottomRow.appendChild(menuButton);
 
     // Append bottom row to menu item
     itemDiv.appendChild(bottomRow);
 
-    menuContainer.appendChild(itemDiv);
+    grid.appendChild(itemDiv);
+    });
+
+    menuContainer.appendChild(section);
   });
 }
 

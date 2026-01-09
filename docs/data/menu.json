@@ -2,32 +2,123 @@
   "items": [
     {
       "name": "South Indian Lentil Curry",
-      "price": "7 Euros",
-      "description": "Traditional curry made with homemade spice blend, ginger, garlic and tamarind.",
+      "price": "€7",
+      "description": "Traditional curry made with our homemade spice blend, ginger, garlic and tamarind.",
       "ingredients": "Lentils, homemade spice blend, ginger, garlic, tamarind",
       "allergens": "",
+      "submenu": "Dishes",
       "type": "Curry",
       "vegan": true,
       "vegetarian": true
     },
     {
       "name": "Chicken Gassi",
-      "price": "8 Euros",
-      "description": "Marinated chicken cooked with ground spice mix, onion, tomato, ginger and garlic with coconut milk and tamarind. Served with steamed rice and side dishes - papadams, coconut chutney, beetroot yogurt salad, and fried chili.",
+      "price": "€8",
+      "description": "Marinated chicken cooked with ground spice mix, onion, tomato, ginger and garlic in coconut milk and tamarind. Served with steamed rice and side dishes - papadams, coconut chutney, beetroot yogurt salad, and fried chili.",
       "ingredients": "Chicken, ground spice mix, onion, tomato, ginger, garlic, coconut milk, tamarind, rice, papadams, coconut chutney, beetroot yogurt, fried chili",
       "allergens": "",
+      "submenu": "Dishes",
       "type": "Curry",
       "vegan": false,
       "vegetarian": false
     },
     {
+      "name": "Masala Dosa",
+      "price": "€7.5",
+      "description": "Crispy rice and lentil crepe filled with spiced potato, served with coconut chutney.",
+      "ingredients": "Rice, lentils, potato, onion, mustard seeds, curry leaves, coconut chutney",
+      "allergens": "",
+      "submenu": "Dishes",
+      "type": "Street Food",
+      "vegan": true,
+      "vegetarian": true
+    },
+    {
+      "name": "Paratha Taco",
+      "price": "€7",
+      "description": "Paratha taco with red cabbage, pickled onions, pulled meat and arugula.",
+      "ingredients": "Wheat flour, ghee, salt, water, red cabbage, onions, vinegar, sugar, pulled meat, spices, arugula",
+      "allergens": "",
+      "submenu": "Dishes",
+      "type": "Street Food",
+      "vegan": false,
+      "vegetarian": false
+    },
+    {
+      "name": "Idli Vada with Sambar",
+      "price": "€6.5",
+      "description": "Soft idli and crispy vada served with sambar.",
+      "ingredients": "Rice, urad dal, fenugreek, black pepper, cumin, curry leaves, green chili, toor dal, tamarind, mixed vegetables, sambar spices, salt",
+      "allergens": "",
+      "submenu": "Dishes",
+      "type": "Street Food",
+      "vegan": true,
+      "vegetarian": true
+    },
+    {
       "name": "Mango Lassi",
-      "price": "2.50 Euros",
-      "description": "A refreshing mango yogurt drink.",
+      "price": "€2.5",
+      "description": "Everybody's favourite mango yogurt drink.",
       "ingredients": "Mango, yogurt, sugar",
       "allergens": "Dairy",
+      "submenu": "Drinks",
       "type": "Drink",
       "vegan": false,
+      "vegetarian": true
+    },
+    {
+      "name": "Chai",
+      "price": "€2",
+      "description": "Black tea simmered with warming spices and milk.",
+      "ingredients": "Black tea, milk, cardamom, cinnamon, ginger, cloves, sugar",
+      "allergens": "Dairy",
+      "submenu": "Drinks",
+      "type": "Hot Drink",
+      "vegan": false,
+      "vegetarian": true
+    },
+    {
+      "name": "Papadam",
+      "price": "€0.5",
+      "description": "Crispy lentil cracker.",
+      "ingredients": "Lentil flour, spices",
+      "allergens": "",
+      "submenu": "Extras",
+      "type": "Side",
+      "vegan": true,
+      "vegetarian": true
+    },
+    {
+      "name": "Coconut Chutney",
+      "price": "€0.5",
+      "description": "Fresh coconut chutney.",
+      "ingredients": "Coconut, curry leaves, mustard seeds, chili",
+      "allergens": "",
+      "submenu": "Extras",
+      "type": "Side",
+      "vegan": true,
+      "vegetarian": true
+    },
+    {
+      "name": "Beetroot Salad",
+      "price": "€1",
+      "description": "Beetroot yogurt salad.",
+      "ingredients": "Beetroot, yogurt, spices",
+      "allergens": "Dairy",
+      "submenu": "Extras",
+      "type": "Side",
+      "vegan": false,
+      "vegetarian": true
+    },
+    {
+      "name": "Fried Chilies",
+      "price": "€0.5",
+      "description": "Shatteringly crispy fried green chilies.",
+      "ingredients": "Green chilies, oil, salt",
+      "allergens": "",
+      "submenu": "Extras",
+      "type": "Side",
+      "vegan": true,
       "vegetarian": true
     }
   ]

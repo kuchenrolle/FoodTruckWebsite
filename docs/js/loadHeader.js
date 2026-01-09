@@ -129,8 +129,9 @@ function attachNavListeners() {
 
           // resize calendar iframe
           if (url.includes('events')) {
-            // reinitStyledCalendar();
-            setIframeHeight(); // Adjust the iframe height after loading the events page
+            if (typeof loadEvents === 'function') {
+              loadEvents();
+            }
           } else if (url.includes('gallery')) {
             loadGallery(); // Manually call the function to load the gallery
           }
@@ -147,15 +148,15 @@ function attachNavListeners() {
 
 function loadGallery() {
   const galleryContainer = document.getElementById('gallery');
-  
+
   if (!galleryContainer) {
     console.error('Gallery container not found.');
     return;
   }
-  
-  const repo = 'kuchenrolle/FoodTruckWebsite'; // Replace with your GitHub username/repository
-  const folder = 'docs/images/gallery'; // Folder path in the repository
-  const branch = 'main'; // Branch name (default is main)
+
+  const repo = 'kuchenrolle/FoodTruckWebsite';
+  const folder = 'docs/images/gallery';
+  const branch = 'main';
   const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}?ref=${branch}`;
 
   fetch(apiUrl)
@@ -227,7 +228,6 @@ function setIframeHeight() {
 }
 
 
-// Call right away
 loadHeader();  // Header will be loaded, and then attachNavListeners will be called inside
 loadFooter();  // Load footer as before
 

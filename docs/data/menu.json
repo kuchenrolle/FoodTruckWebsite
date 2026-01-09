@@ -61,30 +61,6 @@
       "vegetarian": true
     },
     {
-      "name": "Mango Lassi",
-      "price": "€2.5",
-      "description": "Everybody's favourite mango yogurt drink.",
-      "ingredients": "Mango, yogurt, sugar",
-      "allergens": "Dairy",
-      "submenu": "Drinks",
-      "type": "Drink",
-      "active": true,
-      "vegan": false,
-      "vegetarian": true
-    },
-    {
-      "name": "Chai",
-      "price": "€2",
-      "description": "Black tea simmered with warming spices and milk.",
-      "ingredients": "Black tea, milk, cardamom, cinnamon, ginger, cloves, sugar",
-      "allergens": "Dairy",
-      "submenu": "Drinks",
-      "type": "Hot Drink",
-      "active": true,
-      "vegan": false,
-      "vegetarian": true
-    },
-    {
       "name": "Papadam",
       "price": "€0.5",
       "description": "Crispy lentil cracker.",
@@ -130,6 +106,30 @@
       "type": "Side",
       "active": true,
       "vegan": true,
+      "vegetarian": true
+    },
+    {
+      "name": "Mango Lassi",
+      "price": "€2.5",
+      "description": "Everybody's favourite mango yogurt drink.",
+      "ingredients": "Mango, yogurt, sugar",
+      "allergens": "Dairy",
+      "submenu": "Drinks",
+      "type": "Drink",
+      "active": true,
+      "vegan": false,
+      "vegetarian": true
+    },
+    {
+      "name": "Chai",
+      "price": "€2",
+      "description": "Black tea simmered with warming spices and milk.",
+      "ingredients": "Black tea, milk, cardamom, cinnamon, ginger, cloves, sugar",
+      "allergens": "Dairy",
+      "submenu": "Drinks",
+      "type": "Hot Drink",
+      "active": true,
+      "vegan": false,
       "vegetarian": true
     }
   ]

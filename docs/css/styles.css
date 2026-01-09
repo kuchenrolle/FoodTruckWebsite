@@ -417,23 +417,34 @@ h2 {
   stroke: currentColor;
 }
 
-.menu-item .menu-button:hover::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--brown);
-  color: var(--white);
-  padding: 12px 14px;
-  font-size: 0.85rem;
-  border-radius: 8px;
-  white-space: pre-line;
-  width: min(320px, 90vw);
-  min-width: 220px;
-  line-height: 1.4;
-  word-wrap: break-word;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+@media (hover: hover) {
+  .menu-item .menu-button:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--brown);
+    color: var(--white);
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    white-space: pre-line;
+    width: min(320px, 90vw);
+    min-width: 220px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  }
+}
+
+@media (hover: hover) and (max-width: 768px) {
+  .menu-item .menu-button:hover::after {
+    left: auto;
+    right: 0;
+    transform: none;
+    width: min(260px, 92vw);
+  }
 }
 
 @media (max-width: 768px) {
@@ -445,12 +456,6 @@ h2 {
     width: 100%;
   }
 
-  .menu-item .menu-button:hover::after {
-    left: auto;
-    right: 0;
-    transform: none;
-    width: min(260px, 92vw);
-  }
 }
 
 
@@ -701,18 +706,19 @@ footer p {
 
 .events-load-more {
   margin-top: 16px;
-  padding: 10px 18px;
-  background-color: var(--green);
-  color: var(--white);
-  border: none;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: var(--brown);
+  border: 1px solid black;
   border-radius: 4px;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
 }
 
 .events-load-more:hover {
-  background-color: var(--brown);
+  background-color: var(--cream);
+  border-color: var(--brown);
 }
 
 .events-message {
@@ -758,11 +764,15 @@ footer p {
   display: block;
   overflow: hidden;
   position: relative;
+  aspect-ratio: 1 / 1;
+  cursor: default;
 }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 

@@ -92,10 +92,15 @@ function attachNavListeners() {
           // Extract the <main> element from the fetched page
           const newMain = doc.querySelector('main');
           const currentMain = document.querySelector('main');
+          const newTitle = doc.querySelector('title');
 
           if (newMain) {
             // Replace the entire <main> element with the new one, keeping all its attributes, classes, etc.
             currentMain.replaceWith(newMain);
+          }
+
+          if (newTitle) {
+            document.title = newTitle.textContent;
           }
 
           // Remove any existing inline <script> tags from the old content
@@ -155,28 +160,35 @@ function loadGallery() {
   }
 
   const repo = 'kuchenrolle/FoodTruckWebsite';
-  const folder = 'docs/images/gallery';
   const branch = 'main';
-  const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}?ref=${branch}`;
 
-  fetch(apiUrl)
-    .then(response => {
-      if (!response.ok) throw new Error('Failed to fetch images');
-      return response.json();
-    })
-    .then(files => {
-      if (!Array.isArray(files)) {
-        throw new Error('Invalid data format received.');
-      }
+  function fetchImages(folder) {
+    const apiUrl = `https://api.github.com/repos/${repo}/contents/${folder}?ref=${branch}`;
+    return fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) throw new Error(`Failed to fetch images from ${folder}`);
+        return response.json();
+      })
+      .then(files => {
+        if (!Array.isArray(files)) {
+          throw new Error('Invalid data format received.');
+        }
+        return files.filter(file => /\.(jpg|jpeg|png|gif)$/.test(file.name));
+      });
+  }
 
-      const images = files.filter(file => /\.(jpg|jpeg|png|gif)$/.test(file.name));
+  Promise.all([
+    fetchImages('docs/images/gallery/food'),
+    fetchImages('docs/images/gallery/nonfood')
+  ])
+    .then(([foodImages, nonFoodImages]) => {
+      const images = [...foodImages, ...nonFoodImages];
 
-      // Clear existing gallery items
       galleryContainer.innerHTML = '';
 
       images.forEach(image => {
         const anchor = document.createElement('a');
-        anchor.href = image.download_url; // Use GitHub's download URL
+        anchor.href = image.download_url;
         anchor.classList.add('gallery-item');
 
         const img = document.createElement('img');
@@ -187,7 +199,6 @@ function loadGallery() {
         galleryContainer.appendChild(anchor);
       });
 
-      // Re-setup lightbox after gallery is loaded
       setupLightbox();
     })
     .catch(error => console.error('Error fetching images:', error));
